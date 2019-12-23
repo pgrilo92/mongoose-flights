@@ -1,5 +1,6 @@
 const Flight = require('../models/flight')
 
+
 const newFlight = (req, res) => {
     res.render('flights/new', {
         date: new Date()
@@ -24,9 +25,11 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    Flight.findOne({}, (err, records) => {
+    newDate = new Date
+    Flight.findOne({_id: req.params.id}, (err, record, newDate) => {
         res.render('flights/show', {
-
+            flight: record,
+            date: newDate
         })
     })
 }
