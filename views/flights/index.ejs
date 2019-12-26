@@ -9,17 +9,20 @@
                     <th scope="col">Departs</th>
                     <th scope="col">Flight Number</th>
                     <th scope="col">Airline</th>
+                    <th scope="col">Airport</th>
                 </tr>
             </thead>
-            <% flights.forEach(function(flight) { %>
+            <% orderFlights = flights.sort((a,b) => a.departs - b.departs) %>
+            <% orderFlights.forEach(function(flight) { %>
             <tbody>
-                <tr>
-                    <td><%= flight.departs %></td>
-                    <td><%= flight.flightNo %></td>
-                    <td><%= flight.airline %></td>
+                <tr class="clickable-row" data-href="/flights/<%= flight._id%>">
+                        <td><%= flight.departs %></td>
+                        <td><%= flight.flightNo %></td>
+                        <td><%= flight.airline %></td>
+                        <td><%= flight.airport %></td>
                 </tr>
+                <% }) %>
             </tbody>
-            <% }) %>
         </table>
 
         <form action="/flights/new">
