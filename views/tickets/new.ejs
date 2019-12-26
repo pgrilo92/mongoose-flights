@@ -1,16 +1,15 @@
 <!DOCTYPE html>
+<html>
     <%- include('../partials/head') %>
     <body>
         <%- include('../partials/header') %>
-        <form action="/flights/<%= id %>" method="POST">
-            <label>Seat Number
-                <input name="seat" required pattern="[A-F][1-9]\d?" placeholder='"A19"'>
-            </label>Price
-                <input class="form-control" type="text" name="price" placeholder='"$1000"'>
-            <label>
-                <input class="form-control" type="">
-            </label>
-            <input class="btn btn-primary" type="submit" value=" New Ticket">
+        <form action="/flights/<%= flight %>/tickets" method="POST">
+            <div class="col-6">
+            <input type="hidden" name="flight" value="<%= flight %>">
+            <label>Seat Number</label> <input class="form-control" name="seat" required pattern="[A-F][1-9]\d?" placeholder='"A19"'><br/>
+            <label>Price</label><input class="form-control" type="text" name="price" placeholder='"$1000"'><br/>
+            <input class="btn btn-primary" type="submit" value="New Ticket"> 
+        </div>
         </form>
         <%- include('../partials/footer') %>
     </body>

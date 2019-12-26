@@ -1,4 +1,5 @@
 const Flight = require('../models/flight')
+const Ticket = require('../models/ticket')
 
 
 const newFlight = (req, res) => {
@@ -12,7 +13,7 @@ const create = (req,res) => {
     let flight = new Flight(req.body)
     flight.save(function(err) {
         if (err) return res.render('flights/new')
-        res.redirect('/flights')
+        res.redirect('/')
     })
 }
 
@@ -26,10 +27,14 @@ const index = (req, res) => {
 
 const show = (req, res) => {
     newDate = new Date
-    Flight.findOne({_id: req.params.id}, (err, record, newDate) => {
+    Flight.findOne({_id: req.params.id}, (err, flight, newDate) => {
+        Ticket.find({flight: flight._id}, (err, tickets) => {
+            console.log(tickets)
         res.render('flights/show', {
-            flight: record,
-            date: newDate
+            flight,
+            date: newDate,
+            tickets
+            })
         })
     })
 }

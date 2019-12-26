@@ -2,10 +2,7 @@ const express = require('express')
 const router = express.Router()
 const ticketsCtrl = require('../controllers/tickets')
 
-module.exports = {
-    router
-}
+router.get('/flights/:id/tickets/new', ticketsCtrl.new)
+router.post('/flights/:id/tickets', ticketsCtrl.create)
 
-router.get('../tickets/new', ticketsCtrl.new)
-router.post('../tickets', ticketsCtrl.create)
-router.post('../movies/:movieId/tickets/', ticketsCtrl.addToFlight)
+module.exports = router

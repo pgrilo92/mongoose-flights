@@ -43,7 +43,9 @@ const flightSchema = new Schema(
             default: 'SEA'
         },
 
-        destinations: [destinationSchema]
+        destinations: [destinationSchema],
+
+        tickets: [{ type: Schema.Types.ObjectId, ref: 'Ticket'}]
 
     }, {
     timestamps: true

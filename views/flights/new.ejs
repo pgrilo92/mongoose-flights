@@ -7,27 +7,23 @@
         
         <form action="/flights" method="POST">
             <div class="col-6">
-                <label>Flight Date
+                <label>Flight Date</label>
                     <input class="form-control" type="datetime-local" value="<%= date %>" name="departs">
-                </label>
-                <label>Flight Number
+                <label>Flight Number</label>
                     <input class="form-control" type="text"  maxlength="4" placeholder="Flight No" name="flightNo">
-                </label>
-                <label>Airline
+                <label>Airline</label>
                     <select class="form-control" name="airline">
                         <option>American</option>
                         <option>Southwest</option>
                         <option>United</option>
                     </select>
-                </label>
-                <label>Airport
+                <label>Airport</label>
                     <select class="form-control" name="airport">
                         <option>SEA</option>
                         <option>DAL</option>
                         <option>LAX</option>
                         <option>AUS</option>
                     </select>
-                </label>
                 
                 <input class="btn btn-primary" type="submit" value="New Flight">
             </div>
