@@ -29,7 +29,6 @@ const show = (req, res) => {
     newDate = new Date
     Flight.findOne({_id: req.params.id}, (err, flight, newDate) => {
         Ticket.find({flight: flight._id}, (err, tickets) => {
-            console.log(tickets)
         res.render('flights/show', {
             flight,
             date: newDate,

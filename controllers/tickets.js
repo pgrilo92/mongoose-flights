@@ -6,8 +6,6 @@ const newTicket = (req, res) =>  {
 }
 
 const create = (req, res) => {
-    console.log(req.params.id)
-    console.log(req.body)
     Ticket.create(req.body, function(err, ticket) {
         if(err) return res.render('tickets/new')
         ticket.flight = req.params.id
@@ -21,7 +19,16 @@ const create = (req, res) => {
     })
 }
 
+const deleteTicket = (req, res) => {
+    let ticketId = req.params.ticketId
+    let flightId = req.params.flightId
+    Ticket.deleteOne({_id: ticketId}, () => {
+        res.redirect(`/flights/${flightId}`)     
+    })
+}
+
 module.exports = {
     new: newTicket,
-    create
+    create,
+    delete: deleteTicket
 }
