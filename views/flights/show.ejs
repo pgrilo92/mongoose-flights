@@ -77,7 +77,6 @@
         </form>
 
         <form action="/flights/<%= flight._id %>/destinations" method="POST">
-            <div class="col-6">
                 <label>Arrival Date
                     <input class="form-control" type="datetime-local" value="<%= date  %>" name="arrivals">
                 </label>
@@ -90,7 +89,6 @@
                     </select>
                 </label>
                 <input class="btn btn-primary" type="submit" value="Add Destinations">
-            </div>
         </form>
 
         
